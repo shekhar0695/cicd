@@ -6,8 +6,7 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                git branch: 'main', url: 'https://github.com/shekhar0695/cicd'
-                sh 'mvn clean install'
+                sh 'maven clean install'
             }
         }
         stage('Build docker image'){
