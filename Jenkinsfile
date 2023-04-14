@@ -1,13 +1,13 @@
 pipeline {
     agent any
     tools{
-        maven 'maven'
+        maven 'maven 3.9.1'
     }
     stages{
         stage('Build Maven'){
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/shekhar0695/cicd']])
-                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
+                sh 'mvn clean package'
             }
         }
         stage('Build docker image'){
